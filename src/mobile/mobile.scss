@@ -1,0 +1,32 @@
+$mobile-innerWidth: 800px;
+$mobile-innerHeight: 600px;
+
+@mixin mobile {
+  @media only screen and (max-width: #{$mobile-innerWidth}) { //  or (max-height: #{$mobile-innerHeight})) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: #{$mobile-innerWidth + 1px}) { //  or (min-height: #{$mobile-innerHeight + 1px}
+    @content;
+  }
+}
+
+@mixin wide {
+  @media only screen and (min-width: #{$mobile-innerWidth * 2}) {
+    @content;
+  }
+}
+
+.mobile {
+  @include desktop {
+    display: none!important;
+  }
+}
+
+.desktop {
+  @include mobile {
+    display: none!important;
+  }
+}

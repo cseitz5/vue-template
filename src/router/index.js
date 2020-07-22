@@ -20,6 +20,14 @@ Vue.use(VueRouter)
   }
 ]
 
+routes.push({
+  path: '*',
+  name: '404',
+  hidenav: true,
+  component: () => import('../views/NotFound.vue')
+})
+
+
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,

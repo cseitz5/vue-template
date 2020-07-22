@@ -1,0 +1,52 @@
+
+.form {
+  background-color: rgba(0, 0, 0, 0.05);
+  @include rounded;
+  display: inline-block;
+  input, button {
+    width: 300px;
+    max-width: 80vw;
+    &.other {
+      //width: calc(100% - 40px);
+      //margin-right: 0px;
+    }
+  }
+  input.other::after {
+    content: "\n";
+    display: block;
+  }
+  select {
+    width: calc(300px + 20px);
+    &.other-active {
+      //width: calc(100% - 20px);
+      //display: inline-block;
+      //margin-left: 0px;
+    }
+  }
+
+  .double {
+    input {
+      width: calc(150px - 20px);
+      max-width: calc(40vw - 40px);
+    }
+    p {
+      width: calc(50% - 15px);
+      text-align: left;
+      display: inline-block;
+      margin: 0px;
+      padding-left: 15px;
+    }
+    select {
+      width: calc(50% - 20px);
+    }
+  }
+
+  p {
+    text-align: left;
+    margin: 0px;
+    padding-left: 15px;
+    margin-top: 10px;
+  }
+
+
+}

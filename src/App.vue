@@ -1,14 +1,19 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <title>Kent Hack Enough</title>
+    <div id="nav" v-if="desktop">
+      <router-link v-for="route in $router.options.routes.filter(o => !o.hidenav)" :key="route.path" :to="route.path">{{ route.name }}</router-link>
+    </div>
+    <div id="nav" v-else>
+      <router-link style="color: red!important;" v-for="route in $router.options.routes.filter(o => !o.hidenav)" :key="route.path" :to="route.path">{{ route.name }}</router-link>
     </div>
     <router-view/>
   </div>
 </template>
 
 <style lang="scss">
+@import '@/global.scss';
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

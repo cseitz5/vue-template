@@ -1,0 +1,97 @@
+
+@import '@/mobile/mobile.scss';
+
+// Put whatever you want in here, probs some colors
+
+$green: #42b983;
+$black: #2c3e50;
+$white: #2c3e50;
+
+$color-input: $green;
+$color-input-text: white;
+
+@mixin rounded {
+  border: none;
+  padding: 10px;
+  border-radius: 0.25em;
+  margin: 10px;
+}
+
+@mixin transition-all($time: 0.2s) {
+  transition: all $time;
+}
+
+input {
+  @include rounded;
+  border: 1px solid rgba($color-input, 0);
+  transition: border 0.15s, transform 0.1s;
+  outline: none;
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:focus {
+    border: 1px solid rgba($color-input, 1);
+    transform: scale(1.05);
+  }
+  &:selection {
+    color: rgba(0, 0, 0, 0);
+  }
+}
+
+button {
+  @include rounded;
+  cursor: pointer;
+  color: $color-input-text;
+  border: 1px solid rgba($color-input, 0);
+  background-color: $color-input;
+  transition: border 0.15s, transform 0.1s, filter 0.1s;
+  outline: none;
+  &:hover {
+    transform: scale(1.05);
+    filter: brightness(110%);
+  }
+  &:focus {
+    border: 1px solid rgba($color-input, 0.5);
+    transform: scale(1.05);
+    filter: brightness(110%);
+  }
+  &:selection {
+    color: rgba(0, 0, 0, 0);
+  }
+}
+
+select {
+  @include rounded;
+  border: 1px solid rgba($color-input, 0);
+  transition: border 0.15s, transform 0.1s;
+  outline: none;
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:focus {
+    border: 1px solid rgba($color-input, 1);
+    transform: scale(1.05);
+  }
+  &:selection {
+    color: rgba(0, 0, 0, 0);
+  }
+}
+
+a, .clickable {
+  cursor: pointer;
+  color: $color-input;
+  text-decoration: none;
+  transition: transform 0.1s, filter 0.1s;
+  &:hover {
+    transform: scale(1.05);
+    filter: brightness(110%);
+  }
+}
+
+
+.readonly {
+  input, button, select {
+    opacity: 0.5!important;
+    pointer-events: none;
+  }
+}
